@@ -1,7 +1,17 @@
 #include <iostream>
 #include <string>
+#include <cstdlib>
+
 
 using namespace std;
+
+// test code for c++
+
+/*
+
+This is a multi-line comment.
+
+*/
 
 string code_list[5] = {"a", "b", "c", "d", "e"};
 
