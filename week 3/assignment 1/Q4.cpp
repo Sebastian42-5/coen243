@@ -6,9 +6,9 @@ int main() {
     double first_reading; 
     double second_reading;
 
-    cout << "First reading (C): " << endl;
+    cout << "First reading (C): ";
     cin >> first_reading;
-    cout << "Second reading (C): " << endl;
+    cout << "Second reading (C): ";
     cin >> second_reading;
 
     if (!(-40 < first_reading && first_reading < 125) ||

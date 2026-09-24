@@ -8,11 +8,11 @@ int main() {
     double hourly_rate;
     double booking_fee_rate;
 
-    cout << "Rental duration (minutes): " << endl;
+    cout << "Rental duration (minutes): ";
     cin >> rental_duration; 
-    cout << "Hourly rate ($): " << endl;
+    cout << "Hourly rate ($): ";
     cin >> hourly_rate;
-    cout << "Booking fee rate (%): " << endl;
+    cout << "Booking fee rate (%): ";
     cin >> booking_fee_rate;
     
     double rental_duration_in_hours = rental_duration / 60.0; 
