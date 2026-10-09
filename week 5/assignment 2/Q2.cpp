@@ -35,11 +35,8 @@ int main() {
 
     }
 
-    cout << amount_inserted << endl;
-
     calculateChange(price, amount_inserted, change);
     overpayment = calculateOverpayment(price, amount_inserted);
-    cout << overpayment << endl;
 
     cout << "------ Purchase Summary ------" << endl;
     cout << "Product price: " << price << " cents" << endl;
@@ -66,7 +63,10 @@ void calculateChange(int price, int amount_inserted, int &change){
 
 
 double calculateOverpayment(int price, int amount_inserted){
-    double overpayment = ((amount_inserted - price) / price) * 100;
+    double overpayment = ((static_cast<double>(amount_inserted) - static_cast<double>(price)) / static_cast<double>(price)) * 100;
+    cout << price << endl;
+    cout << amount_inserted << endl;
+    cout << overpayment << endl;
     return overpayment;
 }
 
