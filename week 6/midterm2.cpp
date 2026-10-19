@@ -16,25 +16,25 @@ int isBalanced(int n){
 
     if(count < 2){
         return 0;
-    }
+    } 
 
-    int first_half = n / pow(10, count / 2);
-    int t = pow(10, count / 2);
+
+    int first_half = n / pow(10, (count / 2) + 1);
+    int t = pow(10, (count / 2) + 1);
     int second_half = n % t;
 
-    int first_sum;
-    int second_sum;
+    int first_sum = 0;
+    int second_sum = 0;
 
-    for(int i = count / 2; i >= 1; i--){
-        first_sum = 0;
-        int digit = first_half / pow(10, i);
-        first_sum += digit;
-    }
+    while(first_half >= 1 && second_half >= 1){
+        int current_first_half_digit = first_half % 10;
+        int current_second_half_digit = second_half % 10;
 
-    for(int i = count / 2; i >= 1; i--){
-        second_sum = 0;
-        int digit = second_half / pow(10, i);
-        second_sum += digit;
+        first_sum += current_first_half_digit;
+        second_sum += current_second_half_digit;
+
+        first_half /= 10;
+        second_half /= 10;
     }
 
     if(first_sum == second_sum){
@@ -45,13 +45,42 @@ int isBalanced(int n){
 
 }
 
-int main(){
-    for (int i = 4; i >= 1; i--) {
-    for (int j = i; j <= 4; j++) {
-        cout << (i + j) % 4 << " ";
+int countBalanced(int a, int b){
+    if(a > b){
+        return 0;
     }
-    cout << endl;
-    }
+    return isBalanced(a) + countBalanced(a + 1, b);
+}
 
-    cout << isBalanced(2231) << endl;
+void printBalancedReport(int a, int b){
+    int range_length = 0;
+    for(int i = a; i <= b; i++){
+        range_length++;
+    }
+    cout << range_length << endl;
+    if(a > b){
+        cout << "Invalid range" << endl;
+    } else if(countBalanced(a, b) == 0){
+        cout << "None balanced" << endl;
+    } else if(countBalanced(a, b) == range_length){
+        cout << "All balanced" << endl;
+    } else {
+        cout << countBalanced(a, b) << " of " << range_length << " balanced " << endl;
+    }
+}
+
+
+
+int main(){
+    // for (int i = 4; i >= 1; i--) {
+    // for (int j = i; j <= 4; j++) {
+    //     cout << (i + j) % 4 << " ";
+    // }
+    // cout << endl;
+    // }
+
+    printBalancedReport(10, 30);  // 2 of 21 balanced
+    printBalancedReport(11, 11);  // All balanced
+    printBalancedReport(12, 19);  // None balanced
+    printBalancedReport(30, 10);  // Invalid range
 }
