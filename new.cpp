@@ -2,9 +2,18 @@
 
 using namespace std;
 
-int main(){
-    int a = 0, b = 5;
-    if (a++ && b++) { }
-    if (a++ || b++) { }
-    cout << a << b;
+int x = 1;
+void f() { x++; }
+int getX() { return x; }
+
+int main() {
+    int x = 10;
+    f();
+    {
+        int x = 20;
+        f();
+        x++;
+        cout << x << " ";
+    }
+    cout << x << " " << getX();
 }
