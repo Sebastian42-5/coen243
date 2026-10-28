@@ -30,8 +30,10 @@ int main(){
 
     vector<int> four_highest_grades = findFourHighestGrades(grades);
 
+    cout << "four highest grades: ";
+
     for(int i = 0; i <= four_highest_grades.size(); i++){
-        cout << "four highest grades: " << four_highest_grades[i] << " ";
+        cout << four_highest_grades[i] << " ";
     }
     cout << endl;
 
@@ -73,7 +75,6 @@ vector<int> getGradeList(){
 
 vector<int> findFourHighestGrades(vector<int> grades){
     vector<int> four_highest_grades = {};
-    int max_grade = 0;
 
     if(grades.size() <= 4){
         return grades;
@@ -81,6 +82,7 @@ vector<int> findFourHighestGrades(vector<int> grades){
 
     for(int i = 1; i <= 4; i++){
         int highest_index;
+        int max_grade = 0;
         for(int j = 0; j < grades.size(); j++){
             int current_grade = grades[j];
             if(current_grade > max_grade){
@@ -88,8 +90,14 @@ vector<int> findFourHighestGrades(vector<int> grades){
                 highest_index = j;
             }
         }
+        cout << max_grade << endl;
         four_highest_grades.push_back(max_grade);
         grades.erase(grades.begin() + highest_index);
+
+        for(int k = 0; k < grades.size(); k++){
+            cout << grades[k] << " ";
+        }
+        cout << endl;
 
     }
     
@@ -109,6 +117,7 @@ vector<int> findFourLowestGrades(vector<int> grades){
         int min_grade;
         for(int j = 0; j < grades.size(); j++){
             int current_grade = grades[j];
+            
             if(current_grade < min_grade){
                 min_grade = current_grade;
                 lowest_index = j;
