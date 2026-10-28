@@ -32,15 +32,17 @@ int main(){
 
     cout << "four highest grades: ";
 
-    for(int i = 0; i <= four_highest_grades.size(); i++){
+    for(int i = 0; i < four_highest_grades.size(); i++){
         cout << four_highest_grades[i] << " ";
     }
     cout << endl;
 
     vector<int> four_lowest_grades = findFourLowestGrades(grades);
 
-    for(int i = 0; i <= four_lowest_grades.size(); i++){
-        cout << "four lowest grades: " << four_lowest_grades[i] << " ";
+    cout << "four lowest grades: ";
+
+    for(int i = 0; i < four_lowest_grades.size(); i++){
+        cout << four_lowest_grades[i] << " ";
     }
     cout << endl;
 
@@ -106,7 +108,6 @@ vector<int> findFourHighestGrades(vector<int> grades){
 
 vector<int> findFourLowestGrades(vector<int> grades){
     vector<int> four_lowest_grades = {};
-    int min_grade = 999999;
 
     if(grades.size() <= 4){
         return grades;
@@ -114,10 +115,10 @@ vector<int> findFourLowestGrades(vector<int> grades){
 
     for(int i = 1; i <= 4; i++){
         int lowest_index;
-        int min_grade;
+        int min_grade = 999999;
         for(int j = 0; j < grades.size(); j++){
             int current_grade = grades[j];
-            
+
             if(current_grade < min_grade){
                 min_grade = current_grade;
                 lowest_index = j;
@@ -135,7 +136,7 @@ int findAverageGrade(vector<int> grades){
     int number_of_grades = grades.size();
     int total = 0;
 
-    for(int i = 0; i <= number_of_grades; i++){
+    for(int i = 0; i < number_of_grades; i++){
         total += grades[i];
     }
 
