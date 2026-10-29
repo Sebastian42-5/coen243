@@ -96,6 +96,8 @@ bool isEqual(array<int, 4> arr1, array<int, 4> arr2){
         for(size_t j{0}; j < arr2.size(); ++j){
             if(arr1[i] == arr2[j]){
                 is_equal = true;
+            } else {
+                is_equal = false;
             }
         }
     }
