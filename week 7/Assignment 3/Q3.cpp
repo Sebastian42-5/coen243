@@ -9,19 +9,19 @@ vector<int> findFourHighestGrades(vector<int> grades);
 
 vector<int> findFourLowestGrades(vector<int> grades);
 
-int findAverageGrade(vector<int> grades);
+int findAverageGrade(vector<int> &grades);
 
-int findMedianGrade(vector<int> grades);
+int findMedianGrade(vector<int> &grades);
 
-int findNumberOfAGrades(vector<int> grades);
+int findNumberOfAGrades(vector<int> &grades);
 
-int findNumberOfBGrades(vector<int> grades);
+int findNumberOfBGrades(vector<int> &grades);
 
-int findNumberOfCGrades(vector<int> grades);
+int findNumberOfCGrades(vector<int> &grades);
 
-int findNumberOfDGrades(vector<int> grades);
+int findNumberOfDGrades(vector<int> &grades);
 
-int findNumberOfFGrades(vector<int> grades);
+int findNumberOfFGrades(vector<int> &grades);
 
 
 
@@ -92,15 +92,8 @@ vector<int> findFourHighestGrades(vector<int> grades){
                 highest_index = j;
             }
         }
-        cout << max_grade << endl;
         four_highest_grades.push_back(max_grade);
         grades.erase(grades.begin() + highest_index);
-
-        for(int k = 0; k < grades.size(); k++){
-            cout << grades[k] << " ";
-        }
-        cout << endl;
-
     }
     
     return four_highest_grades;
@@ -126,13 +119,12 @@ vector<int> findFourLowestGrades(vector<int> grades){
         }
         four_lowest_grades.push_back(min_grade);
         grades.erase(grades.begin() + lowest_index);
-
     }
     
     return four_lowest_grades;
 }
 
-int findAverageGrade(vector<int> grades){
+int findAverageGrade(vector<int> &grades){
     int number_of_grades = grades.size();
     int total = 0;
 
@@ -143,7 +135,7 @@ int findAverageGrade(vector<int> grades){
     return total / number_of_grades;
 }
 
-int findMedianGrade(vector<int> grades){
+int findMedianGrade(vector<int> &grades){
     int middle_index;
     int number_of_grades = grades.size();
     int median;
@@ -162,7 +154,7 @@ int findMedianGrade(vector<int> grades){
     return median;
 }
 
-int findNumberOfAGrades(vector<int> grades){
+int findNumberOfAGrades(vector<int> &grades){
     static int count = 0;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] >= 90){
@@ -172,7 +164,7 @@ int findNumberOfAGrades(vector<int> grades){
     return count;
 }
 
-int findNumberOfBGrades(vector<int> grades){
+int findNumberOfBGrades(vector<int> &grades){
     static int count = 0;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] < 90 && grades[i] >= 80){
@@ -182,7 +174,7 @@ int findNumberOfBGrades(vector<int> grades){
     return count;
 }
 
-int findNumberOfCGrades(vector<int> grades){
+int findNumberOfCGrades(vector<int> &grades){
     static int count = 0;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] < 80 && grades[i] >= 65){
@@ -192,7 +184,7 @@ int findNumberOfCGrades(vector<int> grades){
     return count;
 }
 
-int findNumberOfDGrades(vector<int> grades){
+int findNumberOfDGrades(vector<int> &grades){
     static int count = 0;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] < 65 && grades[i] >= 50){
@@ -202,7 +194,7 @@ int findNumberOfDGrades(vector<int> grades){
     return count;
 }
 
-int findNumberOfFGrades(vector<int> grades){
+int findNumberOfFGrades(vector<int> &grades){
     static int count = 0;
     for(int i = 0; i < grades.size(); i++){
         if(grades[i] < 50){

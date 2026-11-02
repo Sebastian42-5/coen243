@@ -20,11 +20,11 @@ int main(){
         cin >> number;
     }
 
-    cout << "Enter a digit to count in the number";
+    cout << "Enter a digit to count in the number: ";
     cin >> digit;
 
     while(digit < 0 || digit > 9){
-        cout << "Enter a digit to count in the number";
+        cout << "Enter a digit to count in the number: ";
         cin >> digit;
     }
 
@@ -34,6 +34,11 @@ int main(){
 
 int countDigit(int number, int digit){
     static int count = 0;
+    static int calls = 0;
+
+    if(calls == 0 && number == 0){
+        return 1;
+    }
     int current_digit = number % 10;
     if(number < 1){
         return count;
@@ -42,6 +47,7 @@ int countDigit(int number, int digit){
         count++;
     }
     number /= 10;
-    cout << number << endl;
+    // cout << number << endl;
+    calls++;
     return countDigit(number , digit);
 }
