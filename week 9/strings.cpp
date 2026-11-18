@@ -42,6 +42,8 @@ int main(){
 // s1.compare(s2) compares the lexicography of two strings. For example, "C" would be higher than "B"
 // returns 1 if greater than, returns 0 if equal, returns -1 if less than
 
+// AC > AAA
+
 // s1.compare(start, length, s2, start, length)
 
 // s1.substr(start, n)
@@ -60,7 +62,8 @@ int main(){
 
 // string::npos indicator for not found and it's a size_t -1 
 
-// s1.find(s2) finds the index where a substring is found in a string. If it is not found, it returns npos
+// s1.find(s2) finds the index where a substring is found in a string in its first ocurrence on the first left index. If it
+// is not found, it returns npos. It searches from left to right
 
 // s1.rfind(s2) searches from right to left 
 
@@ -84,6 +87,8 @@ int main(){
 // strcmp(s1, s2) compare
 // strlen(s) length of the string excluding the null character
 
+
+// methods vs functions of a string
 
 
 
