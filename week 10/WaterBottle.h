@@ -1,5 +1,5 @@
 #ifndef WATERBOTTLE_H
-#define STUDENT_H
+#define WATERBOTTLE_H
 
 class WaterBottle {
 

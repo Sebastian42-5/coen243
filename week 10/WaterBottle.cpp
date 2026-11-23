@@ -23,6 +23,9 @@ double WaterBottle::getVolume() const{
     return volume;
 }
 
+// method that is forced to modify any of the values of the object 
+
+
 int main(){
     WaterBottle wb;
     WaterBottle wb2(50, 4);
@@ -31,3 +34,10 @@ int main(){
 }
 
 // The destructor of an object will be called at the end of the scope it is declared in 
+
+// each time the scope ends, the destrcutor gets activated and the object gets deallocated from memory
+
+// Implementation in .cpp, specifications in .h
+
+
+
