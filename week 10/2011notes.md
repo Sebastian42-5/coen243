@@ -9,7 +9,7 @@ g++ main.o Class.o my_program
 
 If you have f1.cpp, f2.cpp, f3.cpp, it becomes f1.0, f2.0, f3.0 and we link it into one program 
 
-g++ f1.o f2.o f3.o executable_name
+g++ f1.o f2.o f3.o -o executable_name (.exe)
 
 mingw32-make 
 
@@ -61,3 +61,9 @@ This is the only typ of method that can be called by the const object
 
 
 
+g++ -c user.cpp -o user.o
+g++ -c post.cpp -o post.o
+g++ -c socialmediaplatform.cpp -o socialmediaplatform.o
+g++ -c socialmedia_test.cpp -o socialmedia_test.o
+g++ user.o post.o socialmediaplatform.o socialmedia_test.o -o social_media.exe
+./social_media

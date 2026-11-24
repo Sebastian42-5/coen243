@@ -11,9 +11,9 @@ class Post{
         int likes;
         std::vector<std::string> comments;
     public:
-        Post(int postID, std::string content);
-        void addLike(std::string username, int postID);
-        void addComment(std::string username, int postID, std::string comment);
+        Post(std::string content);
+        void addLike();
+        void addComment(std::string username, std::string comment);
         void viewPost(int postID);
         int getID();
 };

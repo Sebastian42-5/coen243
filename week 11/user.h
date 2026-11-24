@@ -11,12 +11,13 @@ class User{
         std::string bio;
         std::vector<Post> posts;
     public:
-        User(std::string username, int userID);
+        User(std::string username, int userID, std::string bio);
         std::string getUsername();
+        int getUserID();
+        std::string getBio();
         void setUsername(std::string username);
-        void createPost(std::string username, int postID, std::string content);
-        void listPosts();
-
+        void createPost(std::string username, std::string content);
+        std::vector<Post> listPosts();
 };
 
 #endif
