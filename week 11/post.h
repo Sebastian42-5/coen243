@@ -12,9 +12,9 @@ class Post{
         std::vector<std::string> comments;
     public:
         Post(int postID, std::string content);
-        void addLike(std::string username, int id);
-        void addComment(std::string username, int id);
-        void viewPost();
+        void addLike(std::string username, int postID);
+        void addComment(std::string username, int postID, std::string comment);
+        void viewPost(std::string username, int postID);
 };
 
 #endif
