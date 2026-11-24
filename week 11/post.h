@@ -14,7 +14,8 @@ class Post{
         Post(int postID, std::string content);
         void addLike(std::string username, int postID);
         void addComment(std::string username, int postID, std::string comment);
-        void viewPost(std::string username, int postID);
+        void viewPost(int postID);
+        int getID();
 };
 
 #endif

@@ -19,7 +19,7 @@ void Post::addComment(std::string username, int postID, std::string comment){
     comments.push_back(fullComment);
 }
 
-void Post::viewPost(std::string username, int postID){
+void Post::viewPost(int postID){
     std::cout << "-POST ID: " << postID << std::endl;
     std::cout << "Content: " << content << std::endl;
     std::cout << "Likes: " << likes << std::endl;
@@ -27,4 +27,8 @@ void Post::viewPost(std::string username, int postID){
     for(std::string comment : comments){
         std::cout << comment << std::endl;
     }
+}
+
+int Post::getID(){
+    return postID;
 }
