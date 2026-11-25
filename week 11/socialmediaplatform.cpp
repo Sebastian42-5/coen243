@@ -14,6 +14,9 @@ void SocialMediaPlatform::registerUser(std::string username, std::string bio){
     int userID = getUsers().size();
     User user = User(username, userID, bio);
     users.push_back(user);
+    for(int i = 0; i < users.size(); i++){
+        std::cout << "User registered: " << users[i].getUsername() << std::endl;
+    }
 }
 
 void SocialMediaPlatform::removeUser(User user){
@@ -25,7 +28,7 @@ User SocialMediaPlatform::findUserByUsername(std::string username){
     for(User user : users){
         if(user.getUsername() == username){
             return user;
-        }
+        } 
     }
     throw std::runtime_error("User not found");
 }

@@ -11,10 +11,10 @@ class Post{
         int likes;
         std::vector<std::string> comments;
     public:
-        Post(std::string content);
+        Post(std::string content, int postID);
         void addLike();
         void addComment(std::string username, std::string comment);
-        void viewPost(int postID);
+        void viewPost();
         int getID();
 };
 

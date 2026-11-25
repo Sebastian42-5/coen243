@@ -66,4 +66,4 @@ g++ -c post.cpp -o post.o
 g++ -c socialmediaplatform.cpp -o socialmediaplatform.o
 g++ -c socialmedia_test.cpp -o socialmedia_test.o
 g++ user.o post.o socialmediaplatform.o socialmedia_test.o -o social_media.exe
-./social_media
+./social_media.exe

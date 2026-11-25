@@ -5,7 +5,7 @@
 
 int main(){
     bool ending = false;
-    SocialMediaPlatform socialMedia;
+    SocialMediaPlatform socialMedia; 
 
     while(!ending){
         int decision;
@@ -32,14 +32,14 @@ int main(){
                 std::cout << "Enter username: ";
                 std::cin >> username;
                 std::cout << "Enter bio: ";
-                std::cin >> bio;
+                std::getline(std::cin >> std::ws, bio);
                 socialMedia.registerUser(username, bio);
                 break;
             case 2:
                 std::cout << "Enter username to create post for: ";
                 std::cin >> username;
                 std::cout << "Enter post content: ";
-                std::cin >> content;
+                std::getline(std::cin >> std::ws, content);
                 socialMedia.createPostForUser(username, content);
                 break;
             case 3:
@@ -55,7 +55,7 @@ int main(){
                 std::cout << "Enter post ID to comment on: ";
                 std::cin >> postID;
                 std::cout << "Enter comment: ";
-                std::cin >> comment;
+                std::getline(std::cin >> std::ws, comment);
                 socialMedia.commentOnPost(username, postID, comment);
                 break;
             case 5:

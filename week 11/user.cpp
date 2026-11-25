@@ -1,13 +1,15 @@
 #include "user.h"
 #include <string>
 #include <vector>
+#include <iostream>
 
 User::User(std::string username, int userID, std::string bio){
-    bio = " ";
-    username = " ";
-    posts = {};
-    userID = posts.size();
+    this->username = username;
+    this->bio = bio;
+    this->userID = userID;
+    this->posts = {};
 }
+
 
 void User::setUsername(std::string username){
     username = username;
@@ -26,16 +28,18 @@ std::string User::getBio(){
 }
 
 void User::createPost(std::string userName, std::string content){
+    int postID = posts.size();
+    std::cout << "Creating post for user: " << userName << std::endl;
     if(userName == username){
-        Post newPost = Post(content);
+        Post newPost = Post(content, postID);
         posts.push_back(newPost);
     }
+    std::cout << content << std::endl;
 }
 
 std::vector<Post> User::listPosts(){
     for(Post post : posts){
-        int postID = post.getID();
-        post.viewPost(postID);
+        post.viewPost();
     }
     return posts;
 }
