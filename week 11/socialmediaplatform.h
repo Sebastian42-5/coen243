@@ -13,10 +13,10 @@ class SocialMediaPlatform{
         std::vector<User> getUsers();
         void registerUser(std::string username, std::string bio);
         void removeUser(User user);
-        User findUserByUsername(std::string username);
+        User& findUserByUsername(std::string username);
         void createPostForUser(std::string username, std::string content);
-        void likePost(std::string username, int postID);
-        void commentOnPost(std::string username, int postID, std::string comment);
+        void likePost(std::string postOwnerUsername, int postID);
+        void commentOnPost(std::string commenterUsername, std::string postOwnerUsername, int postID, std::string comment);
         void viewUserProfile(std::string username);
 };
 

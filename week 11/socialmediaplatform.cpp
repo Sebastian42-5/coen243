@@ -14,9 +14,6 @@ void SocialMediaPlatform::registerUser(std::string username, std::string bio){
     int userID = getUsers().size();
     User user = User(username, userID, bio);
     users.push_back(user);
-    for(int i = 0; i < users.size(); i++){
-        std::cout << "User registered: " << users[i].getUsername() << std::endl;
-    }
 }
 
 void SocialMediaPlatform::removeUser(User user){
@@ -24,8 +21,8 @@ void SocialMediaPlatform::removeUser(User user){
     users.erase(users.begin() + index);
 }
 
-User SocialMediaPlatform::findUserByUsername(std::string username){
-    for(User user : users){
+User& SocialMediaPlatform::findUserByUsername(std::string username){
+    for(User& user : users){
         if(user.getUsername() == username){
             return user;
         } 
@@ -34,38 +31,41 @@ User SocialMediaPlatform::findUserByUsername(std::string username){
 }
 
 void SocialMediaPlatform::createPostForUser(std::string username, std::string content){
-    User user = findUserByUsername(username);
+    User& user = findUserByUsername(username);
     user.createPost(username, content);
 }
 
-void SocialMediaPlatform::likePost(std::string username, int postID){
-    User user = findUserByUsername(username);
-    for(Post post : user.listPosts()){
+void SocialMediaPlatform::likePost(std::string postOwnerUsername, int postID){
+    User& user = findUserByUsername(postOwnerUsername);
+    for(Post& post : user.getPosts()){
         if(post.getID() == postID){
             post.addLike();
+            return;
         }
     }
+    throw std::runtime_error("Post not found");
 }
 
-void SocialMediaPlatform::commentOnPost(std::string username, int postID, std::string comment){
-    User user = findUserByUsername(username);
-    for(Post post : user.listPosts()){
+void SocialMediaPlatform::commentOnPost(std::string commenterUsername, std::string postOwnerUsername, int postID, std::string comment){
+    User& user = findUserByUsername(postOwnerUsername);
+    for(Post& post : user.getPosts()){
         if(post.getID() == postID){
-            post.addComment(username, comment);
+            post.addComment(commenterUsername, comment);
+            return;
         }
     }
+    throw std::runtime_error("Post not found");
 }
 
 void SocialMediaPlatform::viewUserProfile(std::string username){
-    User user = findUserByUsername(username);
+    User& user = findUserByUsername(username);
     std::string bio = user.getBio();
     std::cout << "Profile of " << username << ":" << std::endl;
     std::cout << "Bio: " << bio << std::endl;
     std::cout << std::endl;
     std::cout << "Posts:";
-    user.listPosts();
+    user.viewAllPosts();
 }
-
 
 
 

@@ -6,13 +6,13 @@
 User::User(std::string username, int userID, std::string bio){
     this->username = username;
     this->bio = bio;
-    this->userID = userID;
+    this->userID = userID; 
     this->posts = {};
 }
 
 
 void User::setUsername(std::string username){
-    username = username;
+    this->username = username;
 }
 
 std::string User::getUsername(){
@@ -28,19 +28,20 @@ std::string User::getBio(){
 }
 
 void User::createPost(std::string userName, std::string content){
-    int postID = posts.size();
-    std::cout << "Creating post for user: " << userName << std::endl;
+    int postID = posts.size() + 1;
     if(userName == username){
         Post newPost = Post(content, postID);
         posts.push_back(newPost);
     }
-    std::cout << content << std::endl;
 }
 
-std::vector<Post> User::listPosts(){
+void User::viewAllPosts(){
     for(Post post : posts){
         post.viewPost();
     }
+}
+
+std::vector<Post>& User::getPosts(){
     return posts;
 }
 

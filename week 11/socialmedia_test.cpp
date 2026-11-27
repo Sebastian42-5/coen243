@@ -5,7 +5,17 @@
 
 int main(){
     bool ending = false;
-    SocialMediaPlatform socialMedia; 
+    SocialMediaPlatform socialMedia;
+
+    std::cout << "Welcome to the Social Media Platform Simulation!";
+    std::cout << std::endl;
+    std::cout << "1. Register new user" << std::endl;
+    std::cout << "2. Create a Post for a User" << std::endl;
+    std::cout << "3. Like a Post" << std::endl;
+    std::cout << "4. Comment on a Post" << std::endl;
+    std::cout << "5. View user profile" << std::endl;
+    std::cout << "6. Exit" << std::endl;
+    std::cout << std::endl;
 
     while(!ending){
         int decision;
@@ -15,15 +25,6 @@ int main(){
         std::string comment;
         int postID;
 
-        std::cout << "Welcome to the Social Media Platform Simulation!";
-        std::cout << std::endl;
-        std::cout << "1. Register new user" << std::endl;
-        std::cout << "2. Create a Post for a User" << std::endl;
-        std::cout << "3. Like a Post" << std::endl;
-        std::cout << "4. Comment on a Post" << std::endl;
-        std::cout << "5. View user profile" << std::endl;
-        std::cout << "6. Exit" << std::endl;
-        std::cout << std::endl;
         std::cout << "Enter your choice: ";
         std::cin >> decision;
 
@@ -43,21 +44,25 @@ int main(){
                 socialMedia.createPostForUser(username, content);
                 break;
             case 3:
-                std::cout << "Enter username who likes the post: ";
+                std::cout << "Enter username of the post owner: ";
                 std::cin >> username;
                 std::cout << "Enter post ID to like: ";
                 std::cin >> postID;
                 socialMedia.likePost(username, postID);
                 break;
-            case 4:
+            case 4: {
                 std::cout << "Enter username who comments: ";
                 std::cin >> username;
+                std::string postOwnerUsername;
+                std::cout << "Enter username of the post owner: ";
+                std::cin >> postOwnerUsername;
                 std::cout << "Enter post ID to comment on: ";
                 std::cin >> postID;
                 std::cout << "Enter comment: ";
                 std::getline(std::cin >> std::ws, comment);
-                socialMedia.commentOnPost(username, postID, comment);
+                socialMedia.commentOnPost(username, postOwnerUsername, postID, comment);
                 break;
+            }
             case 5:
                 std::cout << "Enter username to view profile: ";
                 std::cin >> username;

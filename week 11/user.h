@@ -17,7 +17,8 @@ class User{
         std::string getBio();
         void setUsername(std::string username);
         void createPost(std::string username, std::string content);
-        std::vector<Post> listPosts();
+        std::vector<Post>& getPosts();
+        void viewAllPosts();
 };
 
 #endif
